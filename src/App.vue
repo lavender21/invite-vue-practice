@@ -3,6 +3,7 @@
         <titleView></titleView>
         <contact v-for="contact in contacts" :key="contact.id" :name="contact.name" :skill="contact.skill" :info="contact.info"
         :address="contact.address" :id="contact.id" :avatar="contact.avatar"></contact>
+        <email></email>
     </div>
 </template>
 
@@ -10,10 +11,11 @@
 
 import titleView from './components/titleView.vue'
 import contact from './components/contact.vue'
+import email from './components/email.vue'
 
 export default {
     name: 'app',
-    components: { titleView, contact},
+    components: { titleView, contact,email},
     data () {
         return {
             contacts:[
