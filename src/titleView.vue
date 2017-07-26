@@ -2,12 +2,16 @@
     <header>
         <h1 class="title">Invite people to Dribbble</h1>
         <h2 class="subtitle"><span>{{count}}</span>invites available</h2>
+        <search-box></search-box>
     </header>
 </template>
 
 <script>
+    import searchBox from './searchBox.vue'
+
     export default {
         name: 'titleView',
+        components:{ searchBox },
         data () {
             return {
                 count: 0
