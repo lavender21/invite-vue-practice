@@ -1,18 +1,48 @@
 <template>
     <div id="app" class="box">
         <titleView></titleView>
+        <contact v-for="contact in contacts" :key="contact.id" :name="contact.name" :skill="contact.skill" :info="contact.info"
+        :address="contact.address" :id="contact.id" :avatar="contact.avatar"></contact>
     </div>
 </template>
 
 <script>
 
-import titleView from './titleView.vue'
+import titleView from './components/titleView.vue'
+import contact from './components/contact.vue'
 
 export default {
     name: 'app',
-    components: { titleView },
+    components: { titleView, contact},
     data () {
-        return {}
+        return {
+            contacts:[
+                {
+                    name: 'Alex',
+                    skill: 'photoshop,pinanacle studio',
+                    info: 'Belarus',
+                    address: 'bymart.by',
+                    id: 0,
+                    avatar: 'http://i.pravatar.cc/100?img=3'
+                },
+                {
+                    name: 'Alina',
+                    skill: '',
+                    info: 'Ukraine Kiev',
+                    address: 'Kuvshynonva.com',
+                    id: 1,
+                    avatar: 'http://i.pravatar.cc/100?img=4'
+                },
+                {
+                    name: 'Yolna',
+                    skill: 'wordpress,web design,joomla,html',
+                    info: 'palama de Mallorica',
+                    address: 'yollandagranados.com',
+                    id: 2,
+                    avatar: 'http://i.pravatar.cc/100?img=5'
+                }
+            ]
+        }
     }
 }
 </script>
