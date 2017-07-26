@@ -1,11 +1,11 @@
 <template>
     <div id="app" class="box">
-        <titleView></titleView>
-        <contact v-for="contact in contacts" :key="contact.id" :name="contact.name" :skill="contact.skill"
+        <titleView ref="titleView"></titleView>
+        <contact ref="contacts" @check="changeStatus" v-for="contact in contacts" :key="contact.id" :name="contact.name" :skill="contact.skill"
                  :info="contact.info"
                  :address="contact.address" :id="contact.id" :avatar="contact.avatar"></contact>
         <email></email>
-        <submit></submit>
+        <submit ref="submit"></submit>
     </div>
 </template>
 
@@ -47,6 +47,16 @@
                         avatar: 'http://i.pravatar.cc/100?img=5'
                     }
                 ]
+            }
+        },
+        methods: {
+            changeStatus() {
+                let invited = this.$refs.contacts.filter((item) => {
+                    return item.isChecked;
+                }).map((item) => { return item.name });
+                this.$refs.submit.invited = invited;
+                this.$refs.titleView.count = invited.length;
+                this.$refs.submit.isDisabled = invited.length === 0;
             }
         }
     }

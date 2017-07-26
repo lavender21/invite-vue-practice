@@ -14,7 +14,15 @@
         components:{ searchBox },
         data () {
             return {
-                count: 0
+                count:0
+            }
+        },
+        methods: {
+            getCount() {
+                return this.count;
+            },
+            setCount(count) {
+                this.count = count;
             }
         }
     }

@@ -7,12 +7,13 @@
         name: 'submit',
         data() {
             return {
-                isDisabled:true
+                isDisabled:true,
+                invited:[]
             }
         },
         methods:{
             onSubmit() {
-                alert('has been invited');
+                alert(this.invited + ' has been invited');
             }
         }
     }
