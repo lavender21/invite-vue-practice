@@ -1,12 +1,12 @@
 <template>
     <div class="search-box">
-        <input type="text" id="search" class="search" :class="{ active: isActive }" @focus="isActive = true"
-               @blur="isActive = false"/>
-        <i class="fa fa-search"></i>
+        <input type="text" id="search" class="search" />
+        <icon name="search" class="icon"></icon>
     </div>
 </template>
 
 <script>
+
     export default {
         name: 'search-box',
         data () {
@@ -30,12 +30,12 @@
             margin-top: 2.1em;
             transition: .5s ease;
         }
-        input.active {
+        .search:focus {
             width: 100%;
             border: 1px solid $input-color;
             margin-top: 3em;
         }
-        i {
+        .icon {
             position: absolute;
             right: 0;
             top: 2em;
